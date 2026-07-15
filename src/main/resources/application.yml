@@ -1,19 +1,25 @@
 server:
   port: 8083
+  servlet:
+    context-path: /device-service
 
 spring:
   application:
     name: device-service
 
   datasource:
-    url: jdbc:mysql://localhost:3306/device_db
+    url: jdbc:mysql://127.0.0.1:3306/dev
     username: root
-    password: root
+    password: 9578281919@aA
 
   jpa:
     hibernate:
       ddl-auto: update
     show-sql: true
+    properties:
+          hibernate:
+            type:
+              preferred_uuid_jdbc_type: CHAR
 
 employee-service:
   url: http://localhost:8082
