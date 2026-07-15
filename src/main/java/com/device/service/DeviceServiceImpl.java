@@ -104,8 +104,7 @@ public class DeviceServiceImpl implements DeviceService {
 	@Override
 	public DeviceAssignmentResponse assignDevice(UUID deviceId, UUID employeeId) {
 
-		Device device = deviceRepository.findById(deviceId)
-				.orElseThrow(() -> new DeviceNotFoundException("Device not found."));
+		deviceRepository.findById(deviceId).orElseThrow(() -> new DeviceNotFoundException("Device not found."));
 
 		if (assignmentRepository.findByDeviceIdAndReturnedDateIsNull(deviceId).isPresent()) {
 			throw new DeviceAlreadyAssignedException("Device already assigned.");
